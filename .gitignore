@@ -1,0 +1,7 @@
+node_modules
+dist
+*.tgz
+.next
+.npm
+.env
+.DS_Store
