@@ -1,0 +1,61 @@
+@import 'normalize.css/normalize.css';
+@import 'fonts';
+@import 'mixins';
+@import 'variables';
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 15px;
+  color: $brown;
+  line-height: 22px;
+}
+
+h2,
+h3 {
+  font-family: 'Bloggersans-medium', Arial, sans-serif;
+  font-size: 22px;
+  color: $brown;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $width-mobile;
+
+  @media (min-width: $tablet) {
+    max-width: $width-tablet;
+  }
+
+  @media (min-width: $desktop) {
+    max-width: $width-desktop;
+    padding-right: $pad-desktop;
+    padding-left: $pad-desktop;
+  }
+}

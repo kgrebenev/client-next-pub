@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), url('/fonts/Robotolight.woff2') format('woff2'),
+    url('/fonts/Robotolight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bloggersans-medium';
+  src: local('Bloggersans-medium'),
+    url('/fonts/Bloggersans-medium.woff2') format('woff2'),
+    url('/fonts/Bloggersans-medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

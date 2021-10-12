@@ -1,0 +1,28 @@
+/* ===== Mixins ===== */
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin position-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+@mixin font($name: 'Roboto', $size: false, $height: false, $weight: false) {
+  @if $name {
+    font-family: $name, Arial, sans-serif;
+  }
+  @if $size {
+    font-size: $size;
+  }
+  @if $height {
+    line-height: $height;
+  }
+  @if $weight {
+    font-weight: $weight;
+  }
+}
