@@ -1,25 +1,40 @@
+import { useState } from 'react';
+
 const Signup = (): JSX.Element => {
+  const result = useState('инициализация useState');
+
+  console.log(result);
+
   return (
     <div className="container">
       <form className="form">
-        <h1>Signup</h1>
+        <h1>Sign up</h1>
+
         <ul className="form__list">
           <li className="form__item">
             <label className="form__label">
-              Email:
-              <input className="form__input" type="text" name="email" />
+              <input
+                className="form__input"
+                type="text"
+                name="email"
+                placeholder="email"
+              />
             </label>
           </li>
 
           <li className="form__item">
             <label className="form__label">
-              Password:
-              <input className="form__input" type="password" name="password" />
+              <input
+                className="form__input"
+                type="password"
+                name="password"
+                placeholder="password"
+              />
             </label>
           </li>
         </ul>
 
-        <button className="form__button">Sign up</button>
+        <button className="button">Sign up</button>
       </form>
     </div>
   );
