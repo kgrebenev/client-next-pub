@@ -1,13 +1,31 @@
-import { useState } from 'react';
+import { useState, SyntheticEvent } from 'react';
+import axios, { AxiosResponse, AxiosError } from 'axios';
+
+interface Error {
+  message: string;
+  field: string;
+}
 
 const Signup = (): JSX.Element => {
-  const result = useState('инициализация useState');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [errors, setErrors] = useState<Error[]>([]);
 
-  console.log(result);
+  const onSubmit = async (event: SyntheticEvent) => {
+    event.preventDefault();
+
+    await axios
+      .post('/api/users/signup', { email, password })
+      .then(({ data }: AxiosResponse) => console.log(data))
+
+      .catch(({ response }: AxiosError<{ errors: Error[] }>) => {
+        setErrors(response?.data.errors ? response.data.errors : []);
+      });
+  };
 
   return (
     <div className="container">
-      <form className="form">
+      <form className="form" onSubmit={onSubmit}>
         <h1>Sign up</h1>
 
         <ul className="form__list">
@@ -15,6 +33,8 @@ const Signup = (): JSX.Element => {
             <label className="form__label">
               <input
                 className="form__input"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
                 type="text"
                 name="email"
                 placeholder="email"
@@ -26,6 +46,8 @@ const Signup = (): JSX.Element => {
             <label className="form__label">
               <input
                 className="form__input"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
                 type="password"
                 name="password"
                 placeholder="password"
@@ -33,6 +55,8 @@ const Signup = (): JSX.Element => {
             </label>
           </li>
         </ul>
+
+        <div>{errors.map(({ message }) => message)}</div>
 
         <button className="button">Sign up</button>
       </form>
