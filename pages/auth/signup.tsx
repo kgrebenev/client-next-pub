@@ -56,7 +56,17 @@ const Signup = (): JSX.Element => {
           </li>
         </ul>
 
-        <div>{errors.map(({ message }) => message)}</div>
+        {errors.length > 0 && (
+          <div className="form__error error">
+            <ul className="error__list">
+              {errors.map(({ message }) => (
+                <li className="error__item" key={message}>
+                  {message}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         <button className="button">Sign up</button>
       </form>
