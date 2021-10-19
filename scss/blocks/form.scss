@@ -2,7 +2,7 @@
   &__label {
     display: flex;
     flex-direction: column;
-    color: $gray;
+    color: $dark;
   }
 
   &__input {
@@ -12,20 +12,20 @@
     margin-bottom: 10px;
     padding: 13px 15px;
 
-    @include font('Roboto-Light', 16px, 22px);
-    border: solid 1px $l-gray;
-    border-radius: 4px;
+    @include font('Robotolight', 16px, 22px);
+    border: solid 2px $dark;
+    border-radius: 10px;
     resize: none;
 
     &::placeholder {
-      color: $l-gray;
+      color: $dark;
       text-indent: 0;
       transition: text-indent 0.3s ease;
     }
     &:hover,
     &:focus {
       outline: 0;
-      border: $border-dsh-gray;
+      border: $border-dsh-yellow;
     }
 
     &:focus::placeholder,

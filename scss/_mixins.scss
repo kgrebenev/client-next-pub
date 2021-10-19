@@ -12,7 +12,7 @@
   transform: translate3d(-50%, -50%, 0);
 }
 
-@mixin font($name: 'Roboto', $size: false, $height: false, $weight: false) {
+@mixin font($name: 'Lora', $size: false, $height: false, $weight: false) {
   @if $name {
     font-family: $name, Arial, sans-serif;
   }

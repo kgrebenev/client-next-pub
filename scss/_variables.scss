@@ -1,18 +1,12 @@
 /*  ===== Colors ===== */
 $light: #ffffff;
-$l-gray: #e2e2e2;
-$orange: #fda901;
-$h-orange: rgba(253, 169, 1, 0.5);
-$gray: #716f6c;
-$ll-gray: #f7f7f7;
-$blue: #0097d3;
-$brown: #736258;
+$yellow: #eeb45b;
+$grey: #ebebeb;
 $dark: #000000;
 
-$border-dsh: 1px dashed rgba(255, 255, 255, 0.5);
-$border-dsh-gray: 1px dashed rgb(189, 189, 189);
-$border-sld: 1px solid rgba(255, 255, 255, 0.25);
-$border-rnd: 1.5px solid rgba(255, 255, 255, 0.45);
+$border-dsh-yellow: 2px dashed $yellow;
+$border-dsh-grey: 2px dashed $grey;
+$border-dsh-dark: 2px dashed $dark;
 
 /* ===== Sizes ===== */
 $tablet: 768px;

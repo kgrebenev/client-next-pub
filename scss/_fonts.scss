@@ -1,6 +1,15 @@
 @font-face {
-  font-family: 'Roboto';
-  src: local('Roboto'), url('/fonts/Robotolight.woff2') format('woff2'),
+  font-family: 'Lora';
+  src: local('Lora'), url('/fonts/Lora.woff2') format('woff2'),
+    url('/fonts/Lora.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Robotolight';
+  src: local('Robotolight'), url('/fonts/Robotolight.woff2') format('woff2'),
     url('/fonts/Robotolight.woff') format('woff');
   font-weight: normal;
   font-style: normal;
@@ -8,10 +17,10 @@
 }
 
 @font-face {
-  font-family: 'Bloggersans-medium';
-  src: local('Bloggersans-medium'),
-    url('/fonts/Bloggersans-medium.woff2') format('woff2'),
-    url('/fonts/Bloggersans-medium.woff') format('woff');
+  font-family: 'Proxima-nova-extra';
+  src: local('Proxima-nova-extra'),
+    url('/fonts/Proxima_nova_extrabold.woff') format('woff2'),
+    url('/fonts/Proxima_nova_extrabold.woff2') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
