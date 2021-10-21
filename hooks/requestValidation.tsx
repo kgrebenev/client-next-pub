@@ -1,5 +1,5 @@
 import { useState, SyntheticEvent } from 'react';
-import axios, { AxiosResponse, AxiosError, AxiosStatic } from 'axios';
+import axios, { AxiosResponse, AxiosError } from 'axios';
 
 interface HookRequest {
   url: string;
@@ -20,7 +20,12 @@ const RequestValidation = ({
   const [errors, setErrors] = useState<Error[]>([]);
 
   const validatedRequest = async () => {
-    return await axios[method](url, data);
+    return await axios({ method, url, data } as {})
+      .then(({ data }: AxiosResponse) => data)
+
+      .catch(({ response }: AxiosError<{ errors: Error[] }>) => {
+        setErrors(response?.data.errors ? response.data.errors : []);
+      });
   };
 
   return [errors, validatedRequest];
