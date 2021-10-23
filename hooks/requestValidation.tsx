@@ -1,34 +1,31 @@
-import { useState, SyntheticEvent } from 'react';
-import axios, { AxiosResponse, AxiosError } from 'axios';
-
-interface HookRequest {
-  url: string;
-  method: string;
-  data: {};
-}
+import { useState } from 'react';
+import axios, { AxiosResponse, AxiosError, AxiosRequestConfig } from 'axios';
 
 interface Error {
   message: string;
   field: string;
 }
 
-const RequestValidation = ({
+const RequestValidation = <T,>({
   url,
   method,
   data,
-}: HookRequest): (Error[] | Function)[] => {
+}: AxiosRequestConfig<T>) => {
   const [errors, setErrors] = useState<Error[]>([]);
 
-  const validatedRequest = async () => {
-    return await axios({ method, url, data } as {})
-      .then(({ data }: AxiosResponse) => data)
+  const successRequest = async () => {
+    return await axios({ method, url, data })
+      .then((res: AxiosResponse) => {
+        setErrors([]);
+        return res.data;
+      })
 
       .catch(({ response }: AxiosError<{ errors: Error[] }>) => {
         setErrors(response?.data.errors ? response.data.errors : []);
       });
   };
 
-  return [errors, validatedRequest];
+  return { successRequest, errors };
 };
 
 export default RequestValidation;

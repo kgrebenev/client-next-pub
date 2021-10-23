@@ -1,26 +1,28 @@
 import { useState, SyntheticEvent } from 'react';
-import axios, { AxiosResponse, AxiosError } from 'axios';
+import Router from 'next/router';
 
-interface Error {
-  message: string;
-  field: string;
+import requestValidation from '../../hooks/requestValidation';
+
+interface User {
+  email: string;
+  password: string;
 }
 
 const Signup = (): JSX.Element => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [errors, setErrors] = useState<Error[]>([]);
+
+  const { errors, successRequest } = requestValidation<User>({
+    url: '/api/users/signup',
+    method: 'post',
+    data: { email, password },
+  });
 
   const onSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
 
-    await axios
-      .post('/api/users/signup', { email, password })
-      .then(({ data }: AxiosResponse) => console.log(data))
-
-      .catch(({ response }: AxiosError<{ errors: Error[] }>) => {
-        setErrors(response?.data.errors ? response.data.errors : []);
-      });
+    const user = await successRequest();
+    if (user) Router.push('/');
   };
 
   return (
