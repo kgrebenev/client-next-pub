@@ -3,7 +3,6 @@ import { GetServerSidePropsContext } from 'next';
 
 const clientRequest = ({ req }: GetServerSidePropsContext) => {
   if (typeof window === 'undefined') {
-    console.log(req);
     return axios.create({
       baseURL:
         'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/',
