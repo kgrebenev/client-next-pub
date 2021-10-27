@@ -2,6 +2,7 @@ import { useState, SyntheticEvent } from 'react';
 import Router from 'next/router';
 
 import requestValidation from '../../hooks/requestValidation';
+import ErrorList from '../../components/ErrorList';
 
 interface User {
   email: string;
@@ -58,17 +59,9 @@ const Signin = (): JSX.Element => {
           </li>
         </ul>
 
-        {errors.length > 0 && (
-          <div className="form__error error">
-            <ul className="error__list">
-              {errors.map(({ message }) => (
-                <li className="error__item" key={message}>
-                  {message}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <div className="form__error">
+          <ErrorList errors={errors}></ErrorList>
+        </div>
 
         <button className="button">Sign in</button>
       </form>
