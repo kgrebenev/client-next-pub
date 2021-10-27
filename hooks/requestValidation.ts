@@ -1,16 +1,12 @@
 import { useState } from 'react';
 import axios, { AxiosResponse, AxiosError, AxiosRequestConfig } from 'axios';
 
-interface Error {
+export interface Error {
   message: string;
   field: string;
 }
 
-const RequestValidation = <T,>({
-  url,
-  method,
-  data,
-}: AxiosRequestConfig<T>) => {
+const RequestValidation = <T>({ url, method, data }: AxiosRequestConfig<T>) => {
   const [errors, setErrors] = useState<Error[]>([]);
 
   const successRequest = async () => {
