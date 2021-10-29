@@ -2,11 +2,24 @@ import type { AppProps, AppContext } from 'next/app';
 
 import '../scss/styles.scss';
 import { clientRequest } from '../api/client';
+import Header from '../components/Header';
 
-const myApp = ({ Component, pageProps }: AppProps): JSX.Element => {
+interface CurrentUser {
+  currentUser: {
+    id: string;
+    email: string;
+    iat?: number;
+  };
+}
+
+const myApp = ({
+  Component,
+  pageProps,
+  currentUser,
+}: AppProps & CurrentUser): JSX.Element => {
   return (
     <div>
-      <h1>Header</h1>
+      <Header currentUser={currentUser} />
       <Component {...pageProps} />;
     </div>
   );
@@ -14,9 +27,9 @@ const myApp = ({ Component, pageProps }: AppProps): JSX.Element => {
 
 myApp.getInitialProps = async ({ ctx }: AppContext) => {
   const client = clientRequest(ctx);
-  const { data } = await client.get('/api/users/currentuser');
-  console.log(data);
-  return { data };
+  const { data } = await client.get<CurrentUser>('/api/users/currentuser');
+
+  return data;
 };
 
 export default myApp;
