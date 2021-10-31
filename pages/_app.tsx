@@ -2,15 +2,7 @@ import type { AppProps, AppContext } from 'next/app';
 
 import '../scss/styles.scss';
 import { clientRequest } from '../api/client';
-import Header from '../components/Header';
-
-interface CurrentUser {
-  currentUser: {
-    id: string;
-    email: string;
-    iat?: number;
-  };
-}
+import Header, { CurrentUser } from '../components/Header';
 
 const myApp = ({
   Component,
@@ -18,9 +10,9 @@ const myApp = ({
   currentUser,
 }: AppProps & CurrentUser): JSX.Element => {
   return (
-    <div>
+    <div className='container'>
       <Header currentUser={currentUser} />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </div>
   );
 };
