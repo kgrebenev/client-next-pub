@@ -27,44 +27,42 @@ const Signup = (): JSX.Element => {
   };
 
   return (
-    <div className="container">
-      <form className="form" onSubmit={onSubmit}>
-        <h1>Sign up</h1>
+    <form className='form' onSubmit={onSubmit}>
+      <h1>Sign up</h1>
 
-        <ul className="form__list">
-          <li className="form__item">
-            <label className="form__label">
-              <input
-                className="form__input"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                type="text"
-                name="email"
-                placeholder="email"
-              />
-            </label>
-          </li>
+      <ul className='form__list'>
+        <li className='form__item'>
+          <label className='form__label'>
+            <input
+              className='form__input'
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              type='text'
+              name='email'
+              placeholder='email'
+            />
+          </label>
+        </li>
 
-          <li className="form__item">
-            <label className="form__label">
-              <input
-                className="form__input"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                type="password"
-                name="password"
-                placeholder="password"
-              />
-            </label>
-          </li>
-        </ul>
-        <div className="form__error">
-          <ErrorList errors={errors}></ErrorList>
-        </div>
+        <li className='form__item'>
+          <label className='form__label'>
+            <input
+              className='form__input'
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              type='password'
+              name='password'
+              placeholder='password'
+            />
+          </label>
+        </li>
+      </ul>
+      <div className='form__error'>
+        <ErrorList errors={errors}></ErrorList>
+      </div>
 
-        <button className="button">Sign up</button>
-      </form>
-    </div>
+      <button className='button'>Sign up</button>
+    </form>
   );
 };
 
