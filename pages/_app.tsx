@@ -10,9 +10,11 @@ const myApp = ({
   currentUser,
 }: AppProps & CurrentUser): JSX.Element => {
   return (
-    <div className='container'>
+    <div>
       <Header currentUser={currentUser} />
-      <Component {...pageProps} />
+      <div className="container">
+        <Component {...pageProps} />
+      </div>
     </div>
   );
 };
