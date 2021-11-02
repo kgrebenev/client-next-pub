@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import NavBar from './Navbar';
 
 export interface CurrentUser {
   currentUser: {
@@ -18,6 +19,8 @@ const Header = ({ currentUser }: CurrentUser): JSX.Element => {
           <a className="logo__link">{logo}</a>
         </Link>
       </div>
+
+      <NavBar links={[{ label: 'Ссылка1', href: 'www' }]} />
     </header>
   );
 };
