@@ -3,6 +3,7 @@ import type { AppProps, AppContext } from 'next/app';
 import '../scss/styles.scss';
 import { clientRequest } from '../api/client';
 import Header, { CurrentUser } from '../components/Header';
+import Footer from '../components/Footer';
 
 const myApp = ({
   Component,
@@ -15,6 +16,7 @@ const myApp = ({
       <div className="container">
         <Component {...pageProps} />
       </div>
+      <Footer />
     </div>
   );
 };

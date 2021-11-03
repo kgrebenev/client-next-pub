@@ -12,7 +12,7 @@ const NavBar = ({ links }: NavLinks): JSX.Element => {
     <nav className="navbar">
       <ul className="navbar__list">
         {links.map(({ href, label }, index) => (
-          <li key={index}>
+          <li className="navbar__item" key={index}>
             <Link href={href}>
               <a className="navbar__link">{label}</a>
             </Link>

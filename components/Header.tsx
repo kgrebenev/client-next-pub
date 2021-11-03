@@ -20,7 +20,7 @@ const Header = ({ currentUser }: CurrentUser): JSX.Element => {
         </Link>
       </div>
 
-      <NavBar links={[{ label: 'Ссылка1', href: 'www' }]} />
+      <NavBar links={[{ label: 'Ссылка1', href: '/test' }]} />
     </header>
   );
 };
