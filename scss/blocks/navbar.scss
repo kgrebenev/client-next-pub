@@ -1,0 +1,7 @@
+.navbar {
+  display: none;
+
+  @media (min-width: $tablet) {
+    display: block;
+  }
+}
