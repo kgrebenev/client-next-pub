@@ -1,0 +1,20 @@
+.hamburger {
+  @include center();
+  height: inherit;
+  width: 100px;
+  background-color: $dark;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    width: 25px;
+    cursor: pointer;
+
+    li {
+      height: 2px;
+      background-color: $light;
+    }
+  }
+}

@@ -11,16 +11,32 @@ export interface CurrentUser {
 
 const Header = ({ currentUser }: CurrentUser): JSX.Element => {
   const logo = process.env.NEXT_PUBLIC_LOGO;
+  const links = [
+    { label: 'Link1', href: '/test' },
+    { label: 'Link2', href: '/test' },
+    { label: 'Link3', href: '/test' },
+    { label: 'Link4', href: '/test' },
+  ];
 
   return (
     <header className="header">
       <div className="header__logo logo">
-        <Link href="/">
-          <a className="logo__link">{logo}</a>
-        </Link>
+        <h1>
+          <Link href="/">
+            <a className="logo__link">{logo}</a>
+          </Link>
+        </h1>
       </div>
 
-      <NavBar links={[{ label: 'Ссылка1', href: '/test' }]} />
+      <NavBar links={links} />
+
+      <div className="header__hamburger hamburger">
+        <ul className="hamburger__list">
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
     </header>
   );
 };
