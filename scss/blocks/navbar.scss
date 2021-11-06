@@ -1,7 +1,20 @@
 .navbar {
+  height: inherit;
   display: none;
 
   @media (min-width: $tablet) {
     display: block;
+  }
+
+  &__list {
+    @include center();
+    justify-content: space-between;
+    width: calc(100vw / 2);
+    height: inherit;
+  }
+
+  &__link {
+    @include font('Lora', 22px, 24px);
+    color: $dark;
   }
 }
