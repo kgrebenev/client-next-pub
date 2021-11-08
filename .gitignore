@@ -5,3 +5,4 @@ dist
 .npm
 .env
 .DS_Store
+.npmrc
