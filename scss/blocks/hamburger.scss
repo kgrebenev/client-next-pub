@@ -3,18 +3,36 @@
   height: inherit;
   width: 100px;
   background-color: $dark;
+  cursor: pointer;
 
-  &__list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 20px;
-    width: 25px;
-    cursor: pointer;
+  &__icon {
+    position: relative;
+    overflow: visible;
+    background-color: #fff;
+  }
 
-    li {
-      height: 2px;
-      background-color: $light;
+  &__line {
+    display: block;
+    width: 2rem;
+    height: 4px;
+    background-color: #fff;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: inherit;
+      height: inherit;
+      background-color: inherit;
+    }
+
+    &::before {
+      top: -10px;
+    }
+
+    &::after {
+      top: 10px;
     }
   }
 }
