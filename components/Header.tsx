@@ -23,33 +23,32 @@ const Header = ({ currentUser }: CurrentUser): JSX.Element => {
   ];
 
   return (
-    <header className='header'>
-      <div className='header__logo logo'>
+    <header className="header">
+      <div className="header__logo logo">
         <h1>
-          <Link href='/'>
-            <a className='logo__link'>{logo}</a>
+          <Link href="/">
+            <a className="logo__link">{logo}</a>
           </Link>
         </h1>
       </div>
 
       <NavBar links={links} />
-
-      <button
-        onClick={() => setDrawer(!drawer)}
-        className='header__hamburger hamburger'
-        aria-label='menu'
-      >
-        <span className='hamburger__icon'>
-          <span className='hamburger__line'></span>
-        </span>
-      </button>
+      <div className="header__hamburger hamburger">
+        <button
+          onClick={() => setDrawer(!drawer)}
+          className="hamburger__icon"
+          aria-label="menu"
+        >
+          <span className="hamburger__line"></span>
+        </button>
+      </div>
 
       {drawer && (
         <div
           onMouseLeave={() => setDrawer(!drawer)}
-          className='header__drawer drawer'
+          className="header__drawer drawer"
         >
-          <ul className='drawer__list'>
+          <ul className="drawer__list">
             <li>Link1</li>
             <li>Link2</li>
             <li>Link3</li>

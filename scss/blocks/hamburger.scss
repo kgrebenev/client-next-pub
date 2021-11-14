@@ -3,19 +3,28 @@
   height: inherit;
   width: 100px;
   background-color: $dark;
-  cursor: pointer;
 
   &__icon {
+    width: 50px;
+    height: 50px;
     position: relative;
-    overflow: visible;
-    background-color: #fff;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+
+    &:hover {
+      .hamburger__line {
+        background-color: $yellow;
+      }
+    }
   }
 
   &__line {
-    display: block;
-    width: 2rem;
+    position: absolute;
+    left: calc(50% - 40px / 2);
+    width: 40px;
     height: 4px;
-    background-color: #fff;
+    background-color: $light;
 
     &::before,
     &::after {
