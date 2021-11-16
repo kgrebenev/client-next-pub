@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 
 import Link from 'next/link';
 import NavBar from './Navbar';
+import Drawer from './Drawer';
 
-export interface CurrentUser {
+export interface Props {
   currentUser: {
     id: string;
     email: string;
@@ -11,10 +12,10 @@ export interface CurrentUser {
   };
 }
 
-const Header = ({ currentUser }: CurrentUser): JSX.Element => {
+const Header: FunctionComponent<Props> = ({ currentUser }): JSX.Element => {
+  const logo = process.env.NEXT_PUBLIC_LOGO;
   const [drawer, setDrawer] = useState(false);
 
-  const logo = process.env.NEXT_PUBLIC_LOGO;
   const links = [
     { label: 'Link1', href: '/test' },
     { label: 'Link2', href: '/test' },
@@ -43,18 +44,13 @@ const Header = ({ currentUser }: CurrentUser): JSX.Element => {
         </button>
       </div>
 
+      <Drawer drawer={drawer} />
+
       {drawer && (
         <div
-          onMouseLeave={() => setDrawer(!drawer)}
-          className="header__drawer drawer"
-        >
-          <ul className="drawer__list">
-            <li>Link1</li>
-            <li>Link2</li>
-            <li>Link3</li>
-            <li>Link4</li>
-          </ul>
-        </div>
+          onClick={() => setDrawer(!drawer)}
+          className="drawer__background"
+        ></div>
       )}
     </header>
   );

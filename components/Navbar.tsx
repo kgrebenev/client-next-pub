@@ -1,13 +1,14 @@
+import { FunctionComponent } from 'react';
 import Link from 'next/link';
 
-export interface NavLinks {
+export interface Props {
   links: {
     label: string;
     href: string;
   }[];
 }
 
-const NavBar = ({ links }: NavLinks): JSX.Element => {
+const NavBar: FunctionComponent<Props> = ({ links }): JSX.Element => {
   return (
     <nav className="navbar">
       <ul className="navbar__list">
