@@ -1,4 +1,4 @@
-import { FunctionComponent, useRef } from 'react';
+import { FunctionComponent, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
 import useIsomorphicLayoutEffect from '../animation/useIsomorphicLayoutEffect';
@@ -8,12 +8,18 @@ interface Props {
 }
 
 const Drawer: FunctionComponent<Props> = ({ drawer }) => {
+  const [drawerStyle, setDrawerStyle] = useState({ display: 'none' });
+
   const el = useRef<HTMLDivElement>(null);
 
   const tl = useRef<gsap.core.Animation>();
+
   useIsomorphicLayoutEffect(() => {
     tl.current = gsap.timeline().to(el.current, {
       x: 300,
+      onComplete: () => {
+        setDrawerStyle({ display: 'block' });
+      },
     });
   }, []);
 
@@ -22,7 +28,7 @@ const Drawer: FunctionComponent<Props> = ({ drawer }) => {
   }, [drawer]);
 
   return (
-    <div ref={el} className="drawer">
+    <div style={drawerStyle} ref={el} className="drawer">
       <ul className="drawer__list">
         <li>Link1</li>
         <li>Link2</li>
