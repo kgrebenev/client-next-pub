@@ -11,7 +11,7 @@ const TestPage = (): JSX.Element => {
   });
 
   return (
-    <div className="box" ref={el}>
+    <div className='box' ref={el}>
       Hello
     </div>
   );

@@ -3,10 +3,10 @@ import { gsap } from 'gsap';
 
 import Link from 'next/link';
 import NavBar from './Navbar';
-import Drawer from './Drawer';
+
 import useIsomorphicLayoutEffect from '../animation/useIsomorphicLayoutEffect';
 
-export interface Props {
+export interface CurrentUser {
   currentUser: {
     id: string;
     email: string;
@@ -14,7 +14,9 @@ export interface Props {
   };
 }
 
-const Header: FunctionComponent<Props> = ({ currentUser }): JSX.Element => {
+const Header: FunctionComponent<CurrentUser> = ({
+  currentUser,
+}): JSX.Element => {
   const logo = process.env.NEXT_PUBLIC_LOGO;
   const [drawer, setDrawer] = useState(false);
 
@@ -49,11 +51,11 @@ const Header: FunctionComponent<Props> = ({ currentUser }): JSX.Element => {
   }, [drawer]);
 
   return (
-    <header className="header">
-      <div className="header__logo logo">
+    <header className='header'>
+      <div className='header__logo logo'>
         <h1>
-          <Link href="/">
-            <a className="logo__link">{logo}</a>
+          <Link href='/'>
+            <a className='logo__link'>{logo}</a>
           </Link>
         </h1>
       </div>
@@ -61,21 +63,21 @@ const Header: FunctionComponent<Props> = ({ currentUser }): JSX.Element => {
       <NavBar links={links} />
 
       <div ref={el}>
-        <div className="header__square"></div>
-        <div className="header__hamburger hamburger">
+        <div className='header__square'></div>
+        <div className='header__hamburger hamburger'>
           <button
             onClick={() => setDrawer(!drawer)}
-            className="hamburger__icon"
-            aria-label="menu"
+            className='hamburger__icon'
+            aria-label='menu'
           >
-            <span className="hamburger__line"></span>
+            <span className='hamburger__line'></span>
           </button>
         </div>
 
         {/* <Drawer /> */}
 
-        <div className="drawer">
-          <ul className="drawer__list">
+        <div className='drawer'>
+          <ul className='drawer__list'>
             <li>Link1</li>
             <li>Link2</li>
             <li>Link3</li>
@@ -87,7 +89,7 @@ const Header: FunctionComponent<Props> = ({ currentUser }): JSX.Element => {
       {drawer && (
         <div
           onClick={() => setDrawer(!drawer)}
-          className="drawer__background"
+          className='drawer__background'
         ></div>
       )}
     </header>
