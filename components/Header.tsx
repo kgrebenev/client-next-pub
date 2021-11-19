@@ -36,8 +36,9 @@ const Header: FunctionComponent<CurrentUser> = ({
   useIsomorphicLayoutEffect(() => {
     tl.current = gsap
       .timeline()
-      .to(q('.drawer'), { x: 300 })
 
+      .to(q('.drawer'), { x: 300 })
+      .fromTo(q('.hamburger'), { height: '100vh' }, { height: '100px' })
       .to(q('.hamburger'), {
         x: 200,
         onComplete: () => {
@@ -51,11 +52,11 @@ const Header: FunctionComponent<CurrentUser> = ({
   }, [drawer]);
 
   return (
-    <header className="header">
-      <div className="header__logo logo">
+    <header className='header'>
+      <div className='header__logo logo'>
         <h1>
-          <Link href="/">
-            <a className="logo__link">{logo}</a>
+          <Link href='/'>
+            <a className='logo__link'>{logo}</a>
           </Link>
         </h1>
       </div>
@@ -63,21 +64,19 @@ const Header: FunctionComponent<CurrentUser> = ({
       <NavBar links={links} />
 
       <div ref={el}>
-        <div className="header__square"></div>
-        <div style={drawerHide} className="header__hamburger hamburger">
+        <div className='header__square'></div>
+        <div style={drawerHide} className='header__hamburger hamburger'>
           <button
             onClick={() => setDrawer(!drawer)}
-            className="hamburger__icon"
-            aria-label="menu"
+            className='hamburger__icon'
+            aria-label='menu'
           >
-            <span className="hamburger__line"></span>
+            <span className='hamburger__line'></span>
           </button>
         </div>
 
-        {/* <Drawer /> */}
-
-        <div style={drawerHide} className="drawer">
-          <ul className="drawer__list">
+        <div style={drawerHide} className='drawer'>
+          <ul className='drawer__list'>
             <li>Link1</li>
             <li>Link2</li>
             <li>Link3</li>
@@ -89,7 +88,7 @@ const Header: FunctionComponent<CurrentUser> = ({
       {drawer && (
         <div
           onClick={() => setDrawer(!drawer)}
-          className="drawer__background"
+          className='drawer__background'
         ></div>
       )}
     </header>
