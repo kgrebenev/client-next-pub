@@ -20,7 +20,7 @@ const Header: FunctionComponent<CurrentUser> = ({
   const logo = process.env.NEXT_PUBLIC_LOGO;
   const [drawer, setDrawer] = useState(false);
 
-  const [hamburgerHide, setHamburgerHide] = useState({ display: 'none' });
+  const [drawerHide, setDrawerHide] = useState({ display: 'none' });
 
   const el = useRef<HTMLDivElement>(null);
   const q = gsap.utils.selector(el);
@@ -37,25 +37,25 @@ const Header: FunctionComponent<CurrentUser> = ({
     tl.current = gsap
       .timeline()
       .to(q('.drawer'), { x: 300 })
+
       .to(q('.hamburger'), {
         x: 200,
-        // onComplete: () => {
-        //   setHamburgerHide({ display: 'block' });
-        // },
+        onComplete: () => {
+          setDrawerHide({ display: 'block' });
+        },
       });
   }, []);
 
   useIsomorphicLayoutEffect(() => {
-    console.log(drawer);
     tl.current?.reversed(drawer);
   }, [drawer]);
 
   return (
-    <header className='header'>
-      <div className='header__logo logo'>
+    <header className="header">
+      <div className="header__logo logo">
         <h1>
-          <Link href='/'>
-            <a className='logo__link'>{logo}</a>
+          <Link href="/">
+            <a className="logo__link">{logo}</a>
           </Link>
         </h1>
       </div>
@@ -63,21 +63,21 @@ const Header: FunctionComponent<CurrentUser> = ({
       <NavBar links={links} />
 
       <div ref={el}>
-        <div className='header__square'></div>
-        <div className='header__hamburger hamburger'>
+        <div className="header__square"></div>
+        <div style={drawerHide} className="header__hamburger hamburger">
           <button
             onClick={() => setDrawer(!drawer)}
-            className='hamburger__icon'
-            aria-label='menu'
+            className="hamburger__icon"
+            aria-label="menu"
           >
-            <span className='hamburger__line'></span>
+            <span className="hamburger__line"></span>
           </button>
         </div>
 
         {/* <Drawer /> */}
 
-        <div className='drawer'>
-          <ul className='drawer__list'>
+        <div style={drawerHide} className="drawer">
+          <ul className="drawer__list">
             <li>Link1</li>
             <li>Link2</li>
             <li>Link3</li>
@@ -89,7 +89,7 @@ const Header: FunctionComponent<CurrentUser> = ({
       {drawer && (
         <div
           onClick={() => setDrawer(!drawer)}
-          className='drawer__background'
+          className="drawer__background"
         ></div>
       )}
     </header>
