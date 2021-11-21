@@ -1,8 +1,7 @@
 .hamburger {
-  display: flex;
-  align-items: center;
   position: fixed;
-  padding: 25px;
+
+  // padding: 25px;
   top: 0;
   right: 0;
   height: 100px;
@@ -10,16 +9,27 @@
   background-color: $dark;
 
   &__icon {
-    width: 50px;
-    height: 50px;
+    @include center();
+    top: 30px;
+    left: 30px;
+    width: 40px;
+    height: 40px;
     position: relative;
     border: none;
     background-color: inherit;
     cursor: pointer;
 
-    &:hover {
+    &--active {
       .hamburger__line {
-        background-color: $yellow;
+        transform: translateX(-50px);
+        background-color: transparent;
+
+        &::before {
+          transform: rotate(45deg) translate(42px, -28px);
+        }
+        &::after {
+          transform: rotate(-45deg) translate(42px, 28px);
+        }
       }
     }
   }
@@ -30,6 +40,8 @@
     width: 40px;
     height: 4px;
     background-color: $light;
+    border-radius: 15px;
+    transition: all 0.5s ease-in-out;
 
     &::before,
     &::after {
@@ -38,7 +50,9 @@
       left: 0;
       width: inherit;
       height: inherit;
-      background-color: inherit;
+      background-color: $light;
+      border-radius: inherit;
+      transition: all 0.5s ease-in-out;
     }
 
     &::before {

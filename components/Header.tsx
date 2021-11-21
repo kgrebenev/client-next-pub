@@ -52,40 +52,35 @@ const Header: FunctionComponent<CurrentUser> = ({
   }, [drawer]);
 
   return (
-    <header className="header">
-      <div className="header__logo logo">
+    <header className='header'>
+      <div className='header__logo logo'>
         <h1>
-          <Link href="/">
-            <a className="logo__link">{logo}</a>
+          <Link href='/'>
+            <a className='logo__link'>{logo}</a>
           </Link>
         </h1>
       </div>
 
-      <NavBar links={links} style="navbar--header" />
+      <NavBar links={links} style='navbar--header' />
 
       <div ref={el}>
-        <div className="header__square"></div>
-        <div style={drawerHide} className="header__hamburger hamburger">
+        <div className='header__square'></div>
+        <div style={drawerHide} className='header__hamburger hamburger'>
           <button
             onClick={() => setDrawer(!drawer)}
-            className="hamburger__icon"
-            aria-label="menu"
+            className={`hamburger__icon ${
+              drawer ? 'hamburger__icon--active' : ''
+            }`}
+            aria-label='menu'
           >
-            <span className="hamburger__line"></span>
+            <span className='hamburger__line'></span>
           </button>
         </div>
 
-        <div style={drawerHide} className="drawer">
-          <NavBar links={links} style="navbar--drawer" />
+        <div style={drawerHide} className='drawer'>
+          <NavBar links={links} style='navbar--drawer' />
         </div>
       </div>
-
-      {drawer && (
-        <div
-          onClick={() => setDrawer(!drawer)}
-          className="drawer__background"
-        ></div>
-      )}
     </header>
   );
 };
