@@ -29,8 +29,8 @@ const Header: FunctionComponent<CurrentUser> = ({
   const links = [
     { label: 'Link1', href: '/test' },
     { label: 'Link2', href: '/test' },
-    { label: 'Link3', href: '/test' },
-    { label: 'Link4', href: '/test' },
+    { label: 'Регистрация', href: '/auth/signup' },
+    { label: 'Вход', href: '/auth/signin' },
   ];
 
   useIsomorphicLayoutEffect(() => {
@@ -51,34 +51,37 @@ const Header: FunctionComponent<CurrentUser> = ({
     tl.current?.reversed(drawer);
   }, [drawer]);
 
-  return (
-    <header className='header'>
-      <div className='header__logo logo'>
-        <h1>
-          <Link href='/'>
-            <a className='logo__link'>{logo}</a>
-          </Link>
-        </h1>
-      </div>
+  const currentLogo = !currentUser ? (
+    <Link href="/">
+      <a className="logo__link">{logo}</a>
+    </Link>
+  ) : (
+    <div className="logo__link">{currentUser.email}</div>
+  );
 
-      <NavBar links={links} style='navbar--header' />
+  return (
+    <header className="header">
+      <div className="header__logo logo">
+        <h1>{currentLogo}</h1>
+      </div>
+      <NavBar links={links} style="navbar--header" />
 
       <div ref={el}>
-        <div className='header__square'></div>
-        <div style={drawerHide} className='header__hamburger hamburger'>
+        <div className="header__square"></div>
+        <div style={drawerHide} className="header__hamburger hamburger">
           <button
             onClick={() => setDrawer(!drawer)}
             className={`hamburger__icon ${
               drawer ? 'hamburger__icon--active' : ''
             }`}
-            aria-label='menu'
+            aria-label="menu"
           >
-            <span className='hamburger__line'></span>
+            <span className="hamburger__line"></span>
           </button>
         </div>
 
-        <div style={drawerHide} className='drawer'>
-          <NavBar links={links} style='navbar--drawer' />
+        <div style={drawerHide} className="drawer">
+          <NavBar links={links} style="navbar--drawer" />
         </div>
       </div>
     </header>
