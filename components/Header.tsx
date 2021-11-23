@@ -3,7 +3,6 @@ import { gsap } from 'gsap';
 
 import Link from 'next/link';
 import NavBar from './Navbar';
-
 import useIsomorphicLayoutEffect from '../animation/useIsomorphicLayoutEffect';
 
 export interface CurrentUser {
@@ -19,6 +18,7 @@ const Header: FunctionComponent<CurrentUser> = ({
 }): JSX.Element => {
   const logo = process.env.NEXT_PUBLIC_LOGO;
   const [drawer, setDrawer] = useState(false);
+  const [userDrawer, setUserDrawer] = useState(false);
 
   const [drawerHide, setDrawerHide] = useState({ display: 'none' });
 
@@ -56,17 +56,19 @@ const Header: FunctionComponent<CurrentUser> = ({
       <a className="logo__link">{logo}</a>
     </Link>
   ) : (
-    <div className="logo__link">{currentUser.email}</div>
+    <button onClick={() => setUserDrawer(!userDrawer)} className="logo__button">
+      {currentUser.email}
+    </button>
   );
 
   return (
-    <header className="header">
+    <header ref={el} className="header">
       <div className="header__logo logo">
         <h1>{currentLogo}</h1>
       </div>
       <NavBar links={links} style="navbar--header" />
 
-      <div ref={el}>
+      <div>
         <div className="header__square"></div>
         <div style={drawerHide} className="header__hamburger hamburger">
           <button
