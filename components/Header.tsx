@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 
 import Link from 'next/link';
 import NavBar from './Navbar';
+import UserMenu from './UserMenu';
 import useIsomorphicLayoutEffect from '../animation/useIsomorphicLayoutEffect';
 
 export interface CurrentUser {
@@ -34,6 +35,8 @@ const Header: FunctionComponent<CurrentUser> = ({
   ];
 
   useIsomorphicLayoutEffect(() => {
+    console.log('logo-width', q('.logo')[0].offsetWidth);
+
     tl.current = gsap
       .timeline()
 
@@ -53,18 +56,28 @@ const Header: FunctionComponent<CurrentUser> = ({
 
   const currentLogo = !currentUser ? (
     <Link href="/">
-      <a className="logo__link">{logo}</a>
+      <a className="logo__link">
+        <h1>{logo}</h1>
+      </a>
     </Link>
   ) : (
-    <button onClick={() => setUserDrawer(!userDrawer)} className="logo__button">
-      {currentUser.email}
-    </button>
+    <div>
+      <button
+        onClick={() => setUserDrawer(!userDrawer)}
+        className="logo__button"
+      >
+        <h1>{currentUser.email}</h1>
+      </button>
+
+      <UserMenu drawer={drawer} />
+    </div>
   );
 
   return (
     <header ref={el} className="header">
       <div className="header__logo logo">
-        <h1>{currentLogo}</h1>
+        {currentLogo}
+        <div className="usermenu"></div>
       </div>
       <NavBar links={links} style="navbar--header" />
 

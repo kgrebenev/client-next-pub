@@ -1,5 +1,6 @@
 .logo {
   @include center();
+  min-width: 200px;
   z-index: 2;
   background-color: $yellow;
 

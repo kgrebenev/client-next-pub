@@ -1,11 +1,11 @@
-.drawer {
+.usermenu {
   height: 100%;
-  width: 300px;
+  min-width: 200px;
   background-color: $grey;
   color: $light;
   z-index: 300;
   position: fixed;
   top: 100px;
-  right: 0;
+  left: 0;
   padding: 30px;
 }

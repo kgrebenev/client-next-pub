@@ -13,7 +13,11 @@ const UserMenu: FunctionComponent<Props> = ({ drawer }): JSX.Element => {
     { label: 'link3', href: '/auth/signout' },
   ];
 
-  return <NavBar links={links} style="navbar--drawer" />;
+  return (
+    <div className="usermenu">
+      <NavBar links={links} style="navbar--drawer" />;
+    </div>
+  );
 };
 
 export default UserMenu;
