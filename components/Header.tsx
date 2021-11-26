@@ -19,9 +19,9 @@ const Header: FunctionComponent<CurrentUser> = ({
 }): JSX.Element => {
   const logo = process.env.NEXT_PUBLIC_LOGO;
   const [drawer, setDrawer] = useState(false);
-  const [userDrawer, setUserDrawer] = useState(false);
-
+  // const [userDrawer, setUserDrawer] = useState(false);
   const [drawerHide, setDrawerHide] = useState({ display: 'none' });
+  const [width, setWidth] = useState(0);
 
   const el = useRef<HTMLDivElement>(null);
   const q = gsap.utils.selector(el);
@@ -35,8 +35,6 @@ const Header: FunctionComponent<CurrentUser> = ({
   ];
 
   useIsomorphicLayoutEffect(() => {
-    console.log('logo-width', q('.logo')[0].offsetWidth);
-
     tl.current = gsap
       .timeline()
 
@@ -63,13 +61,15 @@ const Header: FunctionComponent<CurrentUser> = ({
   ) : (
     <div>
       <button
-        onClick={() => setUserDrawer(!userDrawer)}
+        onClick={() => {
+          setWidth(!width ? q('.logo')[0].offsetWidth : 0);
+        }}
         className="logo__button"
       >
         <h1>{currentUser.email}</h1>
       </button>
 
-      <UserMenu drawer={drawer} />
+      <UserMenu width={width} />
     </div>
   );
 
