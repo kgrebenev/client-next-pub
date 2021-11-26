@@ -3,19 +3,28 @@ import { FunctionComponent } from 'react';
 import NavBar from './Navbar';
 
 interface Props {
-  drawer: boolean;
+  width: number;
 }
 
-const UserMenu: FunctionComponent<Props> = ({ drawer }): JSX.Element => {
+const UserMenu: FunctionComponent<Props> = ({ width }): JSX.Element => {
   const links = [
-    { label: 'link1', href: '/auth/user' },
-    { label: 'link2', href: '/auth/signout' },
-    { label: 'link3', href: '/auth/signout' },
+    { label: 'Настройки', href: '/auth/user/settings' },
+    { label: 'Профиль', href: '/auth/user/profile' },
+    { label: 'Выход', href: '/auth/signout' },
   ];
 
   return (
-    <div className="usermenu">
-      <NavBar links={links} style="navbar--drawer" />;
+    <div className="usermenu" style={{ width }}>
+      {
+        <div
+          className={`usermenu__drawer ${
+            width ? 'usermenu__drawer--active' : ''
+          }`}
+          style={{ width }}
+        >
+          <NavBar links={links} style="navbar--drawer" />
+        </div>
+      }
     </div>
   );
 };
