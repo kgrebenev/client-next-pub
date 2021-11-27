@@ -17,9 +17,11 @@ export interface CurrentUser {
 const Header: FunctionComponent<CurrentUser> = ({
   currentUser,
 }): JSX.Element => {
-  const logo = process.env.NEXT_PUBLIC_LOGO;
+  const logo = process.env.NEXT_PUBLIC_LOGO
+    ? process.env.NEXT_PUBLIC_LOGO
+    : 'Your company';
   const [drawer, setDrawer] = useState(false);
-  // const [userDrawer, setUserDrawer] = useState(false);
+
   const [drawerHide, setDrawerHide] = useState({ display: 'none' });
   const [width, setWidth] = useState(0);
 
@@ -28,10 +30,10 @@ const Header: FunctionComponent<CurrentUser> = ({
   const tl = useRef<gsap.core.Animation>();
 
   const links = [
-    { label: 'Link1', href: '/test' },
-    { label: 'Link2', href: '/test' },
-    { label: 'Регистрация', href: '/auth/signup' },
-    { label: 'Вход', href: '/auth/signin' },
+    { label: 'Link1', href: '/link1' },
+    { label: 'Link2', href: '/link2' },
+    { label: 'Sign in', href: '/auth/signin' },
+    { label: 'Sign up', href: '/auth/signup' },
   ];
 
   useIsomorphicLayoutEffect(() => {

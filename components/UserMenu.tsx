@@ -8,9 +8,9 @@ interface Props {
 
 const UserMenu: FunctionComponent<Props> = ({ width }): JSX.Element => {
   const links = [
-    { label: 'Настройки', href: '/auth/user/settings' },
-    { label: 'Профиль', href: '/auth/user/profile' },
-    { label: 'Выход', href: '/auth/signout' },
+    { label: 'Settings', href: '/auth/user/settings' },
+    { label: 'Profile', href: '/auth/user/profile' },
+    { label: 'Sign out', href: '/auth/signout' },
   ];
 
   return (

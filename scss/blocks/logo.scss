@@ -4,6 +4,10 @@
   z-index: 2;
   background-color: $yellow;
 
+  h1 {
+    color: white;
+  }
+
   &__link,
   &__button {
     padding-left: 20px;
