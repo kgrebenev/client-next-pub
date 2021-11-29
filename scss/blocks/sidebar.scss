@@ -1,4 +1,4 @@
-.hamburger {
+.sidebar {
   position: fixed;
   top: 0;
   right: 0;
@@ -18,7 +18,7 @@
     cursor: pointer;
 
     &--active {
-      .hamburger__line {
+      .sidebar__line {
         transform: translateX(-50px);
         background-color: transparent;
 
@@ -60,5 +60,17 @@
     &::after {
       top: 10px;
     }
+  }
+
+  &__drawer {
+    height: 100%;
+    width: 300px;
+    background-color: $grey;
+    color: $light;
+    z-index: 300;
+    position: fixed;
+    top: 100px;
+    right: 0;
+    padding: 30px;
   }
 }
