@@ -11,7 +11,7 @@ export interface Props {
   style?: ClassNames;
 }
 
-const NavBar: FunctionComponent<Props> = ({
+const Navbar: FunctionComponent<Props> = ({
   links,
   style = '',
 }): JSX.Element => {
@@ -30,4 +30,4 @@ const NavBar: FunctionComponent<Props> = ({
   );
 };
 
-export default NavBar;
+export default Navbar;

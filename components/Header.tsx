@@ -2,7 +2,7 @@ import { FunctionComponent, useState, useRef } from 'react';
 import { gsap } from 'gsap';
 
 import Link from 'next/link';
-import NavBar from './Navbar';
+import Navbar from './Navbar';
 import UserMenu from './UserMenu';
 import Sidebar from './Sidebar';
 
@@ -61,11 +61,11 @@ const Header: FunctionComponent<CurrentUser> = ({
         <div className="usermenu"></div>
       </div>
 
-      <NavBar links={links} style="navbar--header" />
+      <Navbar links={links} style="navbar--header" />
 
       <div className="header__square"></div>
       <Sidebar>
-        <NavBar links={links} style="navbar--drawer" />
+        <Navbar links={links} style="navbar--drawer" />
       </Sidebar>
     </header>
   );
