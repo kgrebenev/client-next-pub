@@ -1,5 +1,5 @@
 # Hi there! <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="29px">
-This is a quick example of authorization service.
+This is a quick example of authorization service. Use for microservice architecture.
 ---
 
 
@@ -8,12 +8,9 @@ This is a quick example of authorization service.
 ![next](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
-![mongo](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![sass](https://img.shields.io/badge/SASS-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 
-#### Running locally in development mode
-    npm install
-    npm run dev
+
     
 #### Create docker image
     docker build -t <imagename> .
