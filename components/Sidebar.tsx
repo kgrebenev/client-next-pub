@@ -26,7 +26,6 @@ const Sidebar: FunctionComponent = ({ children }) => {
   }, []);
 
   useIsomorphicLayoutEffect(() => {
-    console.log(drawer);
     tl.current?.reversed(drawer);
   }, [drawer]);
 
